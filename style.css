@@ -5,12 +5,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* ---------- Global ---------- */
-html, body { height: 100%; }
-body { background: #030510; color: #e6eef8; }
-a { color: inherit; }
-
-/* ---------- Header (from prot/sandeep) ---------- */
 header .bg {
     height: 100vh;
     width: 100%;
@@ -44,6 +38,17 @@ header nav .logo { font-weight: 700; }
 
 header nav .list ul { display: flex; list-style: none; gap: 1.5rem; }
 header nav .list .butt button { padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+
+/* --------- Mobile nav toggle styles --------- */
+.site-nav .nav-inner { display:flex; align-items:center; width:100%; max-width:1200px; margin:0 auto; }
+.nav-toggle { display: none; }
+.nav-toggle-label { display: none; cursor: pointer; width: 36px; height: 28px; position: relative; }
+.nav-toggle-label span { display:block; height: 3px; width: 100%; background: #fff; margin-bottom:6px; border-radius:3px; transition: transform .2s ease, opacity .2s ease; }
+
+/* default desktop navigation */
+.list { display:flex; align-items:center; gap:1.25rem; }
+.list ul { display:flex; gap:1.25rem; }
+
 
 header .main { height: calc(100vh - 64px); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding: 2rem; }
 
@@ -101,7 +106,17 @@ footer .footer-bottom { padding: 1.5rem 2rem; display:flex; justify-content:spac
     footer .footer-top .content-2 { grid-template-columns: 1fr; gap:1.2rem; }
     footer .footer-bottom { flex-direction: column; gap:.8rem; text-align:center; }
     footer .footer-top .content-1 { align-items:center; text-align:center; }
+
+    /* Small screen nav: hide inline menu, show hamburger */
+    .nav-toggle-label { display:block; margin-left:auto; }
+    .list { display:none; }
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(2) { opacity: 0; }
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* show vertical menu when toggled */
+    .nav-toggle:checked ~ .list { display:flex; flex-direction:column; position:absolute; top:64px; right:16px; background: rgba(10,12,20,0.95); padding:1rem 1.25rem; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.4); }
+    .nav-toggle:checked ~ .list ul { flex-direction:column; gap:0.75rem; }
+    .nav-toggle:checked ~ .list .butt { margin-top: .5rem; }
 }
 
-/* small helpers */
-.sr-only { position: absolute; left: -9999px; }
