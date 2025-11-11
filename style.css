@@ -1,0 +1,430 @@
+/* Reset / base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(253, 252, 252);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* prevent horizontal scroll */
+body {
+    overflow-x: hidden;
+}
+
+/* Background: fixed full-screen so content stays on top */
+header .bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; /* behind content */
+    overflow: hidden;
+}
+
+header .bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0.05rem);
+    display: block;
+    pointer-events: none;
+}
+
+/* Navigation - fixed on top */
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4.25rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(15, 23, 42, 0.6);
+    z-index: 100;
+    font-size: 1.05rem;
+}
+
+/* Logo and links */
+header nav .logo {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+header nav .list {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header nav .list ul {
+    display: flex;
+    list-style: none;
+    gap: 1.8rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+header nav .list ul li a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity .2s;
+}
+
+/* hire button in nav */
+header nav .list .butt button {
+    padding: 5px 12px;
+    border: none;
+    background: transparent;
+    background-color: rgb(42, 124, 230);
+    color:white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+header nav .list .butt button:hover {
+    background-color: rgb(70, 136, 221);
+    color: white;
+}
+
+/* Main content area (placed on top of fixed bg) */
+header .main {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    /* padding-top: 100px; */
+    text-align: center;
+    z-index: 10;
+}
+
+/* avatar circle */
+header .main .gola {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: brown;
+    margin-bottom: 1rem;
+    
+}
+
+/* buttons row */
+header .main .buttt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+}
+
+header .main .buttt .bt1 button {
+    color: white;
+    background-color: rgb(42, 124, 230);
+    padding: 12px 28px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+header .main .buttt .bt1 button svg {
+    width: 20px;
+    height: 20px;
+}
+
+header .main .buttt .bt2 button {
+    color: rgb(42, 124, 230);
+    background-color: transparent;
+    padding: 12px 28px;
+    border: 1px solid rgb(42, 124, 230);
+    border-radius: 7px;
+    cursor: pointer;
+}
+header .main .buttt .bt2 button:hover {
+    background-color: rgb(42, 124, 230);
+    color: white;
+}
+
+/* Heading and paragraph */
+header .main #chotumain h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+}
+
+header .main #chotumain h1 span {
+    color: rgb(42, 124, 230);
+    margin-left: 10px;
+}
+
+header .main #chotumain p {
+    font-size: 1.05rem;
+    color: white;
+    padding: 12px;
+    width: 60%;
+    margin: auto;
+}
+header .main .social-links {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 900px) {
+    header nav {
+        padding: 0 1rem;
+        font-size: 1rem;
+    }
+    header nav .list ul {
+        gap: 1.2rem;
+    }
+    header .main .gola {
+        width: 9rem;
+        height: 9rem;
+    }
+    header .main #chotumain h1 {
+        font-size: 2.2rem;
+    }
+    header .main #chotumain p {
+        width: 75%;
+    }
+}
+
+@media (max-width: 600px) {
+    header nav {
+        height: auto;
+        padding: 0.6rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+        background: rgba(15, 23, 42, 0.75);
+    }
+    header nav .list {
+        width: 100%;
+        justify-content: space-between;
+    }
+    header nav .list ul {
+        flex-direction: column;
+        gap: 0.6rem;
+        width: 100%;
+    }
+    header nav .list .butt {
+        align-self: flex-end;
+    }
+
+    header .main {
+        padding-top: 130px;
+    }
+    header .main #chotumain h1 {
+        font-size: 1.6rem;
+    }
+    header .main #chotumain p {
+        width: 92%;
+        padding: 8px;
+    }
+    header .main .gola {
+        width: 6rem;
+        height: 6rem;
+    }
+    header .main .buttt {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+}
+
+@media (max-width: 400px) {
+    header .main #chotumain h1 {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+    header .main #chotumain p {
+        font-size: 0.95rem;
+    }
+}
+footer {
+    width: 100%;
+    min-height: 50vh;
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 40px 80px;
+}
+
+footer .footer-top {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* border: 1px solid red; */
+}
+
+footer .footer-top .content-1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    /* border: 1px solid red; */
+}
+
+footer .footer-top .content-1 h2 {
+    font-size: 2rem;
+    margin-bottom: -10px;
+    margin-top: 10px;
+}
+
+footer .footer-top .content-1 p {
+    line-height: 1.4;
+    max-width: 450px;
+    color: #94a3b8;
+}
+
+footer .footer-top .content-1 .socials {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+footer .footer-top .content-2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+    /* border: 1px solid red; */
+}
+
+footer .footer-top .content-2-1,
+footer .footer-top .content-2-2 {
+    padding: 1rem;
+}
+
+footer .footer-top h3 {
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer li {
+    margin-bottom: .6rem;
+}
+
+footer a {
+    color: #94a3b8;
+    text-decoration: none;
+}
+
+footer hr {
+    width: 95%;
+    margin: 1rem auto;
+    border: 0.6px solid rgba(255, 255, 255, 0.06);
+}
+
+footer .footer-bottom {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #94a3b8;
+    font-weight: 400;
+    font-size:15px;
+}
+
+/* ---------- Responsive ---------- */
+@media screen and (max-width: 900px) {
+    footer .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    header .main #chotumain p {
+        max-width: 92%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header .main #chotumain h1 {
+        font-size: 2rem;
+    }
+
+    footer .footer-top .content-2 {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    footer .footer-bottom {
+        flex-direction: column;
+        gap: .8rem;
+        text-align: center;
+    }
+
+    footer .footer-top .content-1 {
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Small screen nav: hide inline menu, show hamburger */
+    .nav-toggle-label {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .list {
+        display: none;
+        position: absolute;
+        top: 56px;
+        right: 12px;
+        background: rgba(10, 12, 20, 0.98);
+        padding: 1.2rem 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        flex-direction: column;
+        min-width: 180px;
+        transition: opacity 0.2s, transform 0.2s;
+        z-index: 99;
+    }
+
+    .nav-toggle:checked+.nav-toggle-label span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .nav-toggle:checked+.nav-toggle-label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle:checked+.nav-toggle-label span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .nav-toggle:checked~.list {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .list ul {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .list .butt {
+        margin-top: .5rem;
+    }
+}
