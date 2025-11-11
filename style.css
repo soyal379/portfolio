@@ -27,7 +27,7 @@ header .bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: blur(3px);
+    filter: blur(0.05rem);
     display: block;
     pointer-events: none;
 }
@@ -77,12 +77,17 @@ header nav .list ul li a {
 
 /* hire button in nav */
 header nav .list .butt button {
-    padding: 8px 10px;
-    border: 1px solid white;
+    padding: 5px 12px;
+    border: none;
     background: transparent;
-    color: rgb(57, 45, 230);
+    background-color: rgb(42, 124, 230);
+    color:white;
     border-radius: 7px;
     cursor: pointer;
+}
+header nav .list .butt button:hover {
+    background-color: rgb(70, 136, 221);
+    color: white;
 }
 
 /* Main content area (placed on top of fixed bg) */
@@ -144,6 +149,10 @@ header .main .buttt .bt2 button {
     border-radius: 7px;
     cursor: pointer;
 }
+header .main .buttt .bt2 button:hover {
+    background-color: rgb(42, 124, 230);
+    color: white;
+}
 
 /* Heading and paragraph */
 header .main #chotumain h1 {
@@ -163,6 +172,14 @@ header .main #chotumain p {
     padding: 12px;
     width: 60%;
     margin: auto;
+}
+header .main .social-links {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 /* Responsive breakpoints */
