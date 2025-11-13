@@ -306,9 +306,6 @@ main #skill .page-2 .box h3 {
     text-align: center;
 }
 
-main #skill .page-2 .box ul {
- 
-}
 
 main #skill .page-2 .box ul li {
     /* border: solid 1px red; */
@@ -355,11 +352,6 @@ main #skill .page-2 .box ul li .skill-bar .red-4{
     width: 80%;
 }
 
-
-main #skill .page-2 .box-2 {
-    /* border: solid 1px red; */
-
-}
 
 main #skill .page-2 .box-2 h3 {
     /* border: solid 1px red; */
