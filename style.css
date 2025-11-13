@@ -11,6 +11,10 @@ body {
     overflow-x: hidden;
 }
 
+<<<<<<< HEAD
+=======
+/* Background: fixed within header only */
+>>>>>>> 674f47eedebeeebe0a09433700da42e39ac07b17
 header .bg {
     position: absolute;
     top: 0;
@@ -18,6 +22,10 @@ header .bg {
     width: 100%;
     height: 100%;
     z-index: -1;
+<<<<<<< HEAD
+=======
+    /* behind content */
+>>>>>>> 674f47eedebeeebe0a09433700da42e39ac07b17
     overflow: hidden;
 }
 
@@ -181,6 +189,77 @@ header .main .social-links {
     gap: 1.5rem;
 }
 
+main #about {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(30 41 59/ 1);
+
+}
+
+main #about .tow {
+    display: flex;
+    justify-content: center;
+}
+
+main #about .tow .text {
+    width: 50%;
+    margin-top: 3rem;
+    margin-right: 3rem;
+    color: white;
+    font-size: 1rem;
+    /* border: solid 1px yellow; */
+}
+
+main #about .tow .text h1 {
+    font-size: 2.8rem;
+    margin-left: 5rem;
+}
+main #about .tow .text h1 span {
+    color: rgb(42, 124, 230);
+}
+
+main #about .tow .text p {
+    font-size: 1.2rem;
+    margin-left: 5rem;
+    margin-top: 1rem;
+}
+
+main #about .tow .text-2 {
+    width: 50%;
+    margin-top: 3rem;
+
+}
+
+main #about .tow .text-2 img {
+    width: 80%;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-left: 5rem;
+    margin-top: 4rem;
+}
+main #about .num ul{
+    display: flex;
+    margin-left: 5rem ;
+    margin-top: 2rem;
+    list-style: none;
+    gap: 2rem;
+}
+main #about .num ul li h2{
+    color:  rgb(96 165 250 );
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    
+}
+main #about .num ul li p{
+    font-size: 1rem;
+    color: white;
+    margin-top: 0.5rem;
+    /* margin-bottom: 2rem; */
+    /* margin-right: 2rem; */
+    text-align: center;
+}
+
+
 /* Responsive breakpoints */
 @media (max-width: 900px) {
     header nav {
@@ -266,6 +345,7 @@ header .main .social-links {
     }
 }
 
+<<<<<<< HEAD
 main #contact {
     background-color: #1e293b;
     padding: 10px;
@@ -469,6 +549,8 @@ main #contact .second .second-2 form button:active {
     transform: translateY(0);
 }
 
+=======
+>>>>>>> 674f47eedebeeebe0a09433700da42e39ac07b17
 footer {
     width: 100%;
     min-height: 50vh;
