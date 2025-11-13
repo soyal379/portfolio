@@ -24,6 +24,12 @@ header .bg {
     overflow: hidden;
 }
 
+/* Ensure header contains the absolute background and avoid page overflow */
+header {
+    position: relative;
+    overflow: hidden;
+}
+
 header .bg img {
     width: 100%;
     height: 100%;
@@ -187,10 +193,10 @@ header .main .social-links {
 }
 
 main #about {
-    height: 100vh;
-    width: 100vw;
+    min-height: auto;
+    width: 100%;
     background-color: rgb(30 41 59/ 1);
-
+    padding: 60px 0;
 }
 
 main #about .tow {
@@ -211,6 +217,7 @@ main #about .tow .text h1 {
     font-size: 2.8rem;
     margin-left: 5rem;
 }
+
 main #about .tow .text h1 span {
     color: rgb(42, 124, 230);
 }
@@ -229,25 +236,31 @@ main #about .tow .text-2 {
 
 main #about .tow .text-2 img {
     width: 80%;
+    max-width: 480px;
+    height: auto;
     border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-left: 5rem;
     margin-top: 4rem;
+    display: block;
 }
-main #about .num ul{
+
+main #about .num ul {
     display: flex;
-    margin-left: 5rem ;
+    margin-left: 5rem;
     margin-top: 2rem;
     list-style: none;
     gap: 2rem;
 }
-main #about .num ul li h2{
-    color:  rgb(96 165 250 );
+
+main #about .num ul li h2 {
+    color: rgb(96 165 250);
     font-size: 1.5rem;
     margin-left: 2rem;
-    
+
 }
-main #about .num ul li p{
+
+main #about .num ul li p {
     font-size: 1rem;
     color: white;
     margin-top: 0.5rem;
@@ -255,6 +268,153 @@ main #about .num ul li p{
     /* margin-right: 2rem; */
     text-align: center;
 }
+
+main #skill {
+    /* border: solid 1px red; */
+    background-color: rgb(15 23 42/ 1);
+    color: red;
+    /* height: 100vh; */
+}
+
+main #skill .page {
+    /* border: solid 1px red; */
+    text-align: center;
+    padding: 1rem;
+    /* margin: 1.3rem; */
+}
+
+main #skill .page h1 {
+    font-size: 2.8rem;
+}
+
+main #skill .page h1 span {
+    color: rgb(14, 158, 235);
+
+}
+
+main #skill .page-2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 20px 80px;
+    flex-wrap: wrap;
+}
+
+main #skill .page-2 .box {
+    width: 30rem;
+}
+
+main #skill .page-2 .box h3 {
+    /* border: solid 1px red; */
+    text-align: center;
+}
+
+main #skill .page-2 .box ul {
+ 
+}
+
+main #skill .page-2 .box ul li {
+    /* border: solid 1px red; */
+     background-color: rgb(30 41 59/ 1);
+    list-style: none;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 30rem;
+    margin: 1rem auto;
+
+}
+
+main #skill .page-2 .box ul li .skill-bar {
+    border: rgb(17, 20, 26) 2px solid;
+    /* padding: 0.2rem; */
+    width: 100%;
+    border-radius: 0.5rem;
+      
+}
+
+main #skill .page-2 .box ul li .skill-bar .red{
+    border: rgb(42, 124, 230) 4px solid;
+    border-radius: 0.3rem;
+    width: 90%;
+}
+main #skill .page-2 .box ul li .skill-bar .red-1{
+    border: rgb(42, 124, 230) 4px solid;
+    border-radius: 0.3rem;
+    width: 85%;
+}
+main #skill .page-2 .box ul li .skill-bar .red-2{
+    border: rgb(42, 124, 230) 4px solid;
+    border-radius: 0.3rem;
+    width: 59%;
+}
+main #skill .page-2 .box ul li .skill-bar .red-3{
+    border: rgb(42, 124, 230) 4px solid;
+    border-radius: 0.3rem;
+    width: 83%;
+}
+main #skill .page-2 .box ul li .skill-bar .red-4{
+    border: rgb(42, 124, 230) 4px solid;
+    border-radius: 0.3rem;
+    width: 80%;
+}
+
+
+main #skill .page-2 .box-2 {
+    /* border: solid 1px red; */
+
+}
+
+main #skill .page-2 .box-2 h3 {
+    /* border: solid 1px red; */
+    text-align: center;
+}
+
+main #skill .page-2 .box-2 .s-v-g {
+    /* border: solid 1px red; */
+    margin: 1rem;
+}
+
+main #skill .page-2 .box-2 .tool-2 h3 {
+    text-align: start;
+}
+
+main #skill .page-2 .box-2 .tool-0 {
+    background-color: rgb(30 41 59/ 1);
+    border-radius: 0.5rem;
+    padding: 0.6rem;
+    margin: 1rem;
+}
+
+main #skill .page-2 .box-2 .tool-2 {
+    background-color: rgb(30 41 59/ 1);
+    border-radius: 0.5rem;
+    padding: 0.6rem;
+    margin: 1rem;
+}
+
+main #skill .page-2 .box-2 .tool {
+    /* border: solid 1px red; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .5rem;
+    margin: 1rem;
+}
+
+main #skill .page-2 .box-2 .tool .san-grid {
+    /* border: solid 1px blue; */
+    text-align: center;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: rgb(42, 124, 230);
+}
+main #skill .page-2 .box-2 .tool .san-grid:hover {
+    background-color: rgb(70, 136, 221);
+    color: white;
+}
+
+
+
 
 
 /* Responsive breakpoints */
@@ -342,12 +502,115 @@ main #about .num ul li p{
     }
 }
 
+/* Responsive rules for About section */
+@media (max-width: 900px) {
+    main #about {
+        height: auto;
+        padding: 60px 1.5rem;
+    }
+
+    main #about .tow {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    main #about .tow .text,
+    main #about .tow .text-2 {
+        width: 100%;
+        margin: 0;
+    }
+
+    main #about .tow .text h1 {
+        font-size: 2.2rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    main #about .tow .text p {
+        margin-left: 0;
+        text-align: center;
+        font-size: 1.05rem;
+        padding: 0 0.5rem;
+    }
+
+    main #about .tow .text-2 img {
+        width: 90%;
+        margin: 1rem auto 0;
+        display: block;
+    }
+
+    main #about .num ul {
+        flex-direction: row;
+        justify-content: center;
+        margin-left: 0;
+        gap: 1.25rem;
+    }
+
+    /* center the .num wrapper itself */
+    main #about .num {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    main #about .tow .text h1 {
+        font-size: 1.9rem;
+    }
+
+    main #about .tow .text p {
+        font-size: 1rem;
+    }
+
+    main #about .num ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    /* ensure the .num container is centered on small screens */
+    main #about .num {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    main #about .tow .text h1 {
+        font-size: 1.5rem;
+    }
+
+    main #about .tow .text p {
+        font-size: 0.95rem;
+    }
+}
+
 footer {
     width: 100%;
     min-height: 50vh;
     background-color: #0f172a;
     color: #ffffff;
     padding: 40px 80px;
+}
+
+/* Make images fluid site-wide */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Container utility to limit very wide content */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 footer .footer-top {
@@ -514,5 +777,40 @@ footer .footer-bottom {
 
     .list .butt {
         margin-top: .5rem;
+    }
+}
+
+/* Skill section: stack and reduce paddings on smaller screens */
+@media (max-width: 900px) {
+    main #skill .page-2 {
+        flex-direction: column;
+        padding: 20px 1.5rem;
+        gap: 1rem;
+    }
+
+    main #skill .page-2 .box,
+    main #skill .page-2 .box-2 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    main #skill .page-2 .box ul li {
+        width: 100%;
+        max-width: 100%;
+        margin: .6rem 0;
+    }
+
+    main #skill .page-2 .box-2 .tool {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    main #skill .page-2 .box-2 .tool {
+        grid-template-columns: 1fr;
+    }
+
+    main #skill .page-2 {
+        padding: 12px 1rem;
     }
 }
