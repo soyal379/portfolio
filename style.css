@@ -3,102 +3,353 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: rgb(253, 252, 252);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-body {
-    overflow-x: hidden;
+html {
+    scroll-behavior: smooth;
 }
 
 header {
+    min-width: 100vw;
+    height: 65px;
+    background: rgb(15, 23, 42);
+    position: fixed;
+    z-index: 10;
+    padding: 0 6rem;
     position: relative;
 }
 
-header .bg {
-    z-index: -1;
-}
-
-header .bg img {
+header .hm {
+    height: 100%;
     width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    filter: blur(0.05rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    color: white;
 }
 
-header nav {
+header .hm .logo {
+    height: 100%;
+    width: 50%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    position: fixed;
-    height: 65px;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgb(15, 23, 42);
-    z-index: 2;
 }
 
-header nav .logo {
-    margin-left: 5rem;
-}
-
-header nav .logo h2 {
+header .hm .logo h2 {
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
-header nav .list {
+header .hm nav {
+    height: 100%;
+    width: 50%;
     display: flex;
+    justify-content: flex-end;
+}
+
+header .hm nav .list {
+    height: 100%;
+    width: 80%;
+}
+
+header .hm nav .list ul {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
     list-style: none;
-    gap: 1.8rem;
-    align-items: center;
-    margin-right: 4rem;
-    padding: 0;
+    text-align: center;
+    height: 100%;
 }
 
-header nav .list a {
-    text-decoration: none;
-    font-size: 16.5px;
-    transition: all 0.4s ease;
+header .hm nav .list ul li {
+    height: 100%;
+    display: flex;
+    align-items: center
+}
+
+header .hm nav .list ul li a {
     position: relative;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
 }
 
-header nav .list a::after {
+header .hm nav .list ul li a::after {
     content: '';
     position: absolute;
     bottom: -5px;
     width: 0;
     left: 0;
-    height: 2px;
+    height: 3px;
     border-radius: 100px;
-    background: linear-gradient(to right, rgb(10, 10, 228), rgb(33, 29, 215));
+    background: linear-gradient(to right, rgb(10, 10, 228), rgb(91, 88, 255));
     transition: all 0.3s ease;
 }
 
-header nav .list a:hover::after {
+header .hm nav .list ul li a:hover::after {
     width: 100%;
 }
 
-header nav .list .butt button {
-    padding: 5px 12px;
-    border: none;
-    background: transparent;
-    background-color: rgb(48, 120, 214);
+header .hm nav .butt {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .hm nav .butt button {
+    background-color: rgb(0, 110, 255);
     color: white;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 400;
     font-size: 16px;
-    margin-left: 6px;
     transition: all 0.3s ease;
+    padding: 10px;
+    border: none;
+    position: relative;
 }
 
-header nav .list .butt button:hover {
-    background-color: rgb(17, 91, 187);
-    color: white;
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+header .hm nav .butt button::after,
+header .hm nav .butt button::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    padding: 2.5px;
+    background-image: conic-gradient(from var(--angle), transparent 10%, blue);
+    border-radius: 8px;
+    translate: -50% -50%;
+    background-color: transparent;
+}
+
+
+header .hm nav .butt button::before {
+    opacity: 1;
+    filter: blur(1.5rem);
+}
+
+header .hm nav .butt button:hover {
+    background-color: rgb(17, 38, 98);
+}
+
+header .hm nav .butt button:hover::after,
+header .hm nav .butt button:hover::before {
+    animation: rotate 3s linear infinite;
+    z-index: -10;
+}
+
+@keyframes rotate {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+header .hm nav .butt button:active {
+    transform: scale(0.8);
+}
+
+header .hm .toggle {
+    display: none;
+}
+
+header .hm .toggle i {
+    font-size: 1.5rem;
+}
+
+
+@media only screen and (min-width: 681px) and (max-width: 992px) {
+    header {
+        padding: 0 4rem;
+        height: 55px;
+    }
+
+    header .hm {
+        padding: 0 0.6rem;
+    }
+
+    header .hm .logo {
+        width: 40%;
+    }
+
+    header .hm .logo h2 {
+        font-size: 1.7rem;
+    }
+
+    header .hm nav {
+        width: 70%;
+        gap: 0.6rem
+    }
+
+    header .hm nav .list ul {
+        gap: 0.8rem;
+    }
+
+    header .hm nav .list ul li a {
+        font-size: 13px;
+    }
+
+    header .hm nav .butt button {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 680px) {
+    header {
+        padding: 0 2rem;
+        height: 50px;
+    }
+
+    header .hm {
+        padding: 0 0.5rem;
+    }
+
+    header .hm .logo {
+        width: 38%;
+    }
+
+    header .hm .logo h2 {
+        font-size: 1.6rem;
+    }
+
+    header .hm nav {
+        width: 62%;
+        gap: 0.5rem;
+    }
+
+    header .hm nav .list {
+        width: 70%;
+    }
+
+    header .hm nav .list ul {
+        gap: 0.5rem;
+    }
+
+    header .hm nav .list ul li a {
+        font-size: 12px;
+    }
+
+    header .hm nav .butt {
+        width: 25%;
+    }
+
+    header .hm nav .butt button {
+        font-size: 12px;
+        padding: 7px;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    header {
+        padding: 0 1.5rem;
+        height: 50px;
+    }
+
+    header .hm {
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    header .hm .logo {
+        width: 35%;
+
+    }
+
+    header .hm .logo h2 {
+        font-size: 1.45rem;
+    }
+
+    header .hm nav {
+        width: 55%;
+
+    }
+
+    header .hm nav .list {
+        width: 50%;
+
+    }
+
+    header .hm nav .list ul {
+        gap: 0.3rem;
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 50px;
+        left: 0;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        background-color: rgb(3, 29, 91);
+        color: white;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease;
+    }
+
+    header .hm nav .list ul li {
+        width: 100%;
+        padding: 8px 0;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    header .hm nav .list ul li:hover {
+        background-color: rgb(27, 56, 124);
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    header .hm nav .list ul li a {
+        font-size: 12px;
+    }
+
+    header .hm nav .list ul li a:hover::after {
+        width: 0;
+    }
+
+    header .hm nav .butt {
+        width: 50%;
+    }
+
+    header .hm nav .butt button {
+        font-size: 12px;
+        padding: 7px;
+        font-weight: 600;
+    }
+
+    header .hm .toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    header .hm .toggle i{
+        transition: all 0.3s ease;
+    }
 }
 
 header .main-content {
@@ -216,14 +467,14 @@ header .main .social-links {
     margin-top: 1.5rem;
 }
 
-header .main .social-links ul{
+header .main .social-links ul {
     display: flex;
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
 }
 
-header .main .social-links ul li{
+header .main .social-links ul li {
     list-style: none;
 }
 
@@ -237,9 +488,6 @@ header .main .social-links ul li a {
     border: transparent;
 }
 
-/* header .main .social-links ul li a:hover {
-} */
-
 header .main .social-links ul li a:hover {
     border: rgb(0, 0, 0) 1px solid;
     scale: 1.4;
@@ -247,87 +495,102 @@ header .main .social-links ul li a:hover {
 }
 
 main #about {
-    min-height: auto;
-    width: 100%;
     background-color: rgb(30 41 59/ 1);
-    padding: 60px 0;
+    padding: 60px;
+    height: 100vh;
 }
 
 main #about .tow {
     display: flex;
     justify-content: center;
+    align-items: center;
+    /* border: solid 1px blue; */
 }
 
 main #about .tow .text {
-    width: 50%;
-    margin-top: 3rem;
-    margin-right: 3rem;
-    color: white;
+    flex: 1;
     font-size: 1rem;
-    /* border: solid 1px yellow; */
 }
 
-main #about .tow .text h1 {
+main #about .tow .text .ab {
+    padding: 45px;
+    color: rgb(42, 124, 230);
+    /* border: solid 1px blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+}
+
+main #about .tow .text .ab h1 {
     font-size: 2.8rem;
-    margin-left: 5rem;
 }
 
-main #about .tow .text h1 span {
+main #about .tow .text .ab h1 span {
     color: rgb(42, 124, 230);
 }
 
-main #about .tow .text p {
-    font-size: 1.2rem;
-    margin-left: 5rem;
-    margin-top: 1rem;
+main #about .tow .text .ab p {
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: 1.5;
+    text-align: justify;
+    margin-left: 1rem;
 }
 
-main #about .tow .text-2 {
-    width: 50%;
-    margin-top: 3rem;
-
-}
-
-main #about .tow .text-2 img {
-    width: 80%;
-    max-width: 480px;
-    height: auto;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-left: 5rem;
-    margin-top: 4rem;
-    display: block;
-}
-
-main #about .num ul {
+main #about .tow .text .num {
+    /* border: solid 1px blue; */
     display: flex;
-    margin-left: 5rem;
-    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+main #about .tow .text .num ul {
+    display: flex;
+    /* border: solid 1px blue; */
     list-style: none;
     gap: 2rem;
 }
 
-main #about .num ul li h2 {
+main #about .tow .text .num ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: solid 1px blue; */
+    padding: 10px;
+}
+
+main #about .tow .text .num ul li h2 {
     color: rgb(96 165 250);
     font-size: 1.5rem;
-    margin-left: 2rem;
 
 }
 
-main #about .num ul li p {
+main #about .tow .text .num ul li p {
     font-size: 1rem;
     color: white;
-    margin-top: 0.5rem;
-    /* margin-bottom: 2rem; */
-    /* margin-right: 2rem; */
     text-align: center;
 }
 
+main #about .tow .text-2 {
+    flex: 1;
+    padding: 30px;
+    /* border: solid 1px blue; */
+}
+
+main #about .tow .text-2 img {
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+
+
 main #skill {
-    /* border: solid 1px red; */
     background-color: rgb(15 23 42/ 1);
     color: red;
-    /* height: 100vh; */
+    min-height: 100vh;
 }
 
 main #skill .page {
@@ -468,93 +731,8 @@ main #skill .page-2 .box-2 .tool .san-grid:hover {
 
 
 
-/* Responsive breakpoints */
-@media (max-width: 900px) {
-    header nav {
-        padding: 0 1rem;
-        font-size: 1rem;
-    }
-
-    header nav .list ul {
-        gap: 1.2rem;
-    }
-
-    header .main .gola {
-        width: 9rem;
-        height: 9rem;
-    }
-
-    header .main #chotumain h1 {
-        font-size: 2.2rem;
-    }
-
-    header .main #chotumain p {
-        width: 75%;
-    }
-}
-
-@media (max-width: 600px) {
-    header nav {
-        height: auto;
-        padding: 0.6rem 1rem;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.4rem;
-        background: rgba(15, 23, 42, 0.75);
-    }
-
-    header nav .list {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    header nav .list ul {
-        flex-direction: column;
-        gap: 0.6rem;
-        width: 100%;
-    }
-
-    header nav .list .butt {
-        align-self: flex-end;
-    }
-
-    header .main {
-        padding-top: 130px;
-    }
-
-    header .main #chotumain h1 {
-        font-size: 1.6rem;
-    }
-
-    header .main #chotumain p {
-        width: 92%;
-        padding: 8px;
-    }
-
-    header .main .gola {
-        width: 6rem;
-        height: 6rem;
-    }
-
-    header .main .buttt {
-        flex-direction: column;
-        gap: 0.6rem;
-    }
-}
-
-@media (max-width: 400px) {
-    header .main #chotumain h1 {
-        font-size: 1.3rem;
-        letter-spacing: 1px;
-    }
-
-    header .main #chotumain p {
-        font-size: 0.95rem;
-    }
-}
-
 /* Responsive rules for About section */
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
     main #about {
         height: auto;
         padding: 60px 1.5rem;
@@ -598,15 +776,14 @@ main #skill .page-2 .box-2 .tool .san-grid:hover {
         gap: 1.25rem;
     }
 
-    /* center the .num wrapper itself */
     main #about .num {
         display: flex;
         justify-content: center;
         width: 100%;
     }
-}
+} */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     main #about .tow .text h1 {
         font-size: 1.9rem;
     }
@@ -622,16 +799,15 @@ main #skill .page-2 .box-2 .tool .san-grid:hover {
         margin-top: 1rem;
     }
 
-    /* ensure the .num container is centered on small screens */
     main #about .num {
         display: flex;
         justify-content: center;
         width: 100%;
         padding: 0 0.5rem;
     }
-}
+} */
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
     main #about .tow .text h1 {
         font-size: 1.5rem;
     }
@@ -639,7 +815,7 @@ main #skill .page-2 .box-2 .tool .san-grid:hover {
     main #about .tow .text p {
         font-size: 0.95rem;
     }
-}
+} */
 
 main #contact {
     background-color: #1e293b;
@@ -948,18 +1124,7 @@ footer .footer-bottom {
     font-size: 15px;
 }
 
-/* ---------- Responsive ---------- */
-@media screen and (max-width: 900px) {
-    footer .footer-top {
-        grid-template-columns: 1fr;
-    }
-
-    header .main #chotumain p {
-        max-width: 92%;
-    }
-}
-
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
     header .main #chotumain h1 {
         font-size: 2rem;
     }
@@ -980,7 +1145,6 @@ footer .footer-bottom {
         text-align: center;
     }
 
-    /* Small screen nav: hide inline menu, show hamburger */
     .nav-toggle-label {
         display: flex;
         margin-left: auto;
@@ -1029,9 +1193,9 @@ footer .footer-bottom {
     .list .butt {
         margin-top: .5rem;
     }
-}
+} */
 
-/* Skill section: stack and reduce paddings on smaller screens */
+/* 
 @media (max-width: 900px) {
     main #skill .page-2 {
         flex-direction: column;
@@ -1054,9 +1218,9 @@ footer .footer-bottom {
     main #skill .page-2 .box-2 .tool {
         grid-template-columns: repeat(2, 1fr);
     }
-}
+} */
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     main #skill .page-2 .box-2 .tool {
         grid-template-columns: 1fr;
     }
@@ -1064,4 +1228,4 @@ footer .footer-bottom {
     main #skill .page-2 {
         padding: 12px 1rem;
     }
-}
+} */
