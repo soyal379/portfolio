@@ -16,9 +16,11 @@ function initMenu() {
 // Toggle menu function
 function togglemenu() {
   if (!isOpen) {
+    toggleIcon.style.transform = "rotate(90deg)"
     menulist.style.maxHeight = "300px";
     isOpen = true;
   } else {
+    toggleIcon.style.transform = "rotate(0deg)"
     menulist.style.maxHeight = "0px";
     isOpen = false;
   }
