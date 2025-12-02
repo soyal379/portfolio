@@ -15,14 +15,15 @@ body {
 header {
     min-width: 100vw;
     height: 65px;
-    background: rgba(15, 23, 42, 0.982);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.95) 100%);
     position: fixed;
     z-index: 10;
     padding: 0 6rem;
-    position: fixed;
     top: 0;
     left: 0;
-    border-bottom: #2c3343 2px solid;
+    border-bottom: 1px solid rgba(42, 124, 230, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 header .hm {
@@ -46,6 +47,10 @@ header .hm .logo h2 {
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: 1px;
+    background: linear-gradient(135deg, #ffffff, rgb(42, 124, 230));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 header .hm nav {
@@ -72,16 +77,16 @@ header .hm nav .list ul {
 header .hm nav .list ul li {
     height: 100%;
     display: flex;
-    align-items: center
+    align-items: center;
 }
 
 header .hm nav .list ul li a {
     position: relative;
-    color: white;
-    font-size: 16px;
+    color: rgba(226, 232, 240, 0.9);
+    font-size: 15px;
     font-weight: 500;
     text-decoration: none;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
     text-transform: capitalize;
 }
@@ -89,13 +94,18 @@ header .hm nav .list ul li a {
 header .hm nav .list ul li a::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -8px;
     width: 0;
-    left: 0;
-    height: 3px;
+    left: 50%;
+    height: 2px;
     border-radius: 100px;
-    background: linear-gradient(to right, rgb(10, 10, 228), rgb(91, 88, 255));
+    background: linear-gradient(to right, rgb(42, 124, 230), rgb(14, 158, 235));
     transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+header .hm nav .list ul li a:hover {
+    color: rgb(14, 158, 235);
 }
 
 header .hm nav .list ul li a:hover::after {
@@ -111,72 +121,50 @@ header .hm nav .butt {
 }
 
 header .hm nav .butt button {
-    background-color: rgb(0, 110, 255);
+    background: linear-gradient(135deg, rgb(42, 124, 230), rgb(14, 158, 235));
     color: white;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
     transition: all 0.3s ease;
-    padding: 10px 16px;
-    border: none;
+    padding: 10px 20px;
+    border: 1px solid rgba(42, 124, 230, 0.3);
     position: relative;
+    overflow: hidden;
 }
 
-@property --angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-}
-
-header .hm nav .butt button::after,
 header .hm nav .butt button::before {
     content: '';
     position: absolute;
+    top: 0;
+    left: -100%;
     width: 100%;
     height: 100%;
-    top: 50%;
-    left: 50%;
-    z-index: -1;
-    padding: 2.5px;
-    background-image: conic-gradient(from var(--angle), transparent 10%, blue);
-    border-radius: 8px;
-    translate: -50% -50%;
-    background-color: transparent;
-}
-
-
-header .hm nav .butt button::before {
-    opacity: 1;
-    filter: blur(1.5rem);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
 header .hm nav .butt button:hover {
-    background-color: rgb(17, 38, 98);
+    background: linear-gradient(135deg, rgb(70, 136, 221), rgb(30, 150, 243));
+    box-shadow: 0 8px 20px rgba(42, 124, 230, 0.4);
+    transform: translateY(-2px);
 }
 
-header .hm nav .butt button:hover::after,
 header .hm nav .butt button:hover::before {
-    animation: rotate 3s linear infinite;
-    z-index: -10;
-}
-
-@keyframes rotate {
-    from {
-        --angle: 0deg;
-    }
-
-    to {
-        --angle: 360deg;
-    }
+    left: 100%;
 }
 
 header .hm nav .butt button:active {
-    transform: scale(0.8);
+    transform: translateY(0);
 }
 
 header .hm .toggle {
     display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.3s ease;
 }
 
 header .hm .toggle i {
@@ -394,47 +382,69 @@ main #home .main .arrow a {
 }
 
 main #about {
-    background-color: rgb(30 41 59/ 1);
+    background: linear-gradient(135deg, rgb(30, 41, 59) 0%, rgb(15, 23, 42) 100%);
     min-height: 100vh;
     padding: 4rem 4rem 2rem 4rem;
 }
 
 main #about .tow {
     display: flex;
-
+    gap: 3rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 main #about .tow .text {
-    padding: 50px;
+    padding: 2.5rem;
     width: 50%;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(42, 124, 230, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+main #about .tow .text:hover {
+    border-color: rgba(42, 124, 230, 0.5);
+    box-shadow: 0 12px 32px rgba(42, 124, 230, 0.15);
+    transform: translateY(-5px);
 }
 
 main #about .tow .text h2 {
     font-size: 3.2rem;
     color: white;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 }
 
 main #about .tow .text h2 span {
-    color: rgb(42, 124, 230);
+    color: rgb(14, 158, 235);
+    background: linear-gradient(135deg, rgb(14, 158, 235), rgb(42, 124, 230));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 main #about .tow .text .para {
-    color: white;
+    color: rgba(226, 232, 240, 0.9);
     margin-top: 1.5rem;
 }
 
 main #about .tow .text .para p {
-    font-size: 1.15rem;
-    line-height: 1.4;
-    letter-spacing: 1.8;
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
     text-align: justify;
-    margin: 1.1rem 0;
+    margin: 1.2rem 0;
+    color: rgba(226, 232, 240, 0.85);
 }
 
 main #about .tow .text .num {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 2rem;
 }
 
 main #about .tow .text .num ul {
@@ -442,6 +452,7 @@ main #about .tow .text .num ul {
     list-style: none;
     justify-content: flex-start;
     gap: 2rem;
+    width: 100%;
 }
 
 main #about .tow .text .num ul li {
@@ -449,20 +460,31 @@ main #about .tow .text .num ul li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
-    gap: 0.5rem;
+    padding: 1.5rem;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, rgba(42, 124, 230, 0.1), rgba(14, 158, 235, 0.05));
+    border-radius: 8px;
+    border-left: 4px solid rgb(42, 124, 230);
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+main #about .tow .text .num ul li:hover {
+    background: linear-gradient(135deg, rgba(42, 124, 230, 0.2), rgba(14, 158, 235, 0.1));
+    transform: scale(1.05);
 }
 
 main #about .tow .text .num ul li h2 {
-    color: rgb(96 165 250);
-    font-size: 1.8rem;
-
+    color: rgb(96, 165, 250);
+    font-size: 2rem;
+    margin: 0;
 }
 
 main #about .tow .text .num ul li p {
-    font-size: 1.2rem;
-    color: white;
+    font-size: 1rem;
+    color: rgba(226, 232, 240, 0.8);
     text-align: center;
+    margin: 0;
 }
 
 main #about .tow .text-2 {
@@ -472,21 +494,252 @@ main #about .tow .text-2 {
     align-items: center;
 }
 
+main #about .tow .text-2 .im {
+    position: relative;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(42, 124, 230, 0.1), rgba(14, 158, 235, 0.05));
+    border-radius: 12px;
+    border: 1px solid rgba(42, 124, 230, 0.2);
+}
+
 main #about .tow .text-2 img {
-    border-radius: 0.4rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 12px 32px rgba(42, 124, 230, 0.2);
+    width: 100%;
+    max-width: 400px;
     transition: all 0.3s ease;
+    display: block;
 }
 
 main #about .tow .text-2 img:hover {
     transform: scale(1.05);
+    box-shadow: 0 16px 48px rgba(42, 124, 230, 0.3);
+}
+
+main #skill {
+    background: linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(30, 41, 59) 100%);
+    color: white;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+}
+
+main #skill .page {
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+main #skill .page h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+main #skill .page h1 span {
+    color: rgb(14, 158, 235);
+    background: linear-gradient(135deg, rgb(44, 166, 232), rgb(174, 0, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+main #skill .page p {
+    font-size: 1.3rem;
+    padding: 0.6rem;
+    color: rgba(226, 232, 240, 0.8);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+main #skill .page-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 20px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+main #skill .page-2 .box {
+    padding: 2rem;
+    background-color: rgba(30, 41, 59, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(42, 124, 230, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+main #skill .page-2 .box:hover {
+    border-color: rgba(42, 124, 230, 0.5);
+    box-shadow: 0 12px 32px rgba(42, 124, 230, 0.15);
+    transform: translateY(-5px);
+}
+
+main #skill .page-2 .box h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #e2e8f0;
+}
+
+
+main #skill .page-2 .box ul {
+    list-style: none;
+}
+
+main #skill .page-2 .box ul li {
+    background-color: rgba(30, 41, 59, 0.5);
+    list-style: none;
+    padding: 1.5rem;
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border-left: 4px solid rgb(42, 124, 230);
+    transition: all 0.3s ease;
+}
+
+main #skill .page-2 .box ul li:hover {
+    background-color: rgba(42, 124, 230, 0.1);
+    padding-left: 2rem;
+}
+
+main #skill .page-2 .box ul li span {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #e2e8f0;
+}
+
+main #skill .page-2 .box ul li .skill-bar {
+    background-color: rgb(17, 20, 26);
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+main #skill .page-2 .box ul li .skill-bar .skill-level {
+    height: 100%;
+    background: linear-gradient(90deg, rgb(42, 124, 230), rgb(14, 158, 235));
+    border-radius: 10px;
+    transition: width 0.6s ease;
+}
+
+main #skill .page-2 .box ul li .skill-bar .red {
+    width: 90%;
+}
+
+main #skill .page-2 .box ul li .skill-bar .red-1 {
+    width: 85%;
+}
+
+main #skill .page-2 .box ul li .skill-bar .red-2 {
+    width: 59%;
+}
+
+main #skill .page-2 .box ul li .skill-bar .red-3 {
+    width: 83%;
+}
+
+main #skill .page-2 .box ul li .skill-bar .red-4 {
+    width: 80%;
+}
+
+
+main #skill .page-2 .box-2 {
+    padding: 2rem;
+    background-color: rgba(30, 41, 59, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(42, 124, 230, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+main #skill .page-2 .box-2:hover {
+    border-color: rgba(42, 124, 230, 0.5);
+    box-shadow: 0 12px 32px rgba(42, 124, 230, 0.15);
+    transform: translateY(-5px);
+}
+
+main #skill .page-2 .box-2 h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #e2e8f0;
+}
+
+main #skill .page-2 .box-2 .s-v-g {
+    margin: 1rem;
+}
+
+main #skill .page-2 .box-2 .tool-2 h3 {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+main #skill .page-2 .box-2 .tool-0 {
+    background-color: rgba(30, 41, 59, 0.5);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0;
+    border: 1px solid rgba(42, 124, 230, 0.15);
+}
+
+main #skill .page-2 .box-2 .tool-2 {
+    background-color: rgba(30, 41, 59, 0.5);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0;
+    border: 1px solid rgba(42, 124, 230, 0.15);
+}
+
+main #skill .page-2 .box-2 .tool {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 0;
+}
+
+main #skill .page-2 .box-2 .tool .san-grid {
+    text-align: center;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgb(42, 124, 230), rgb(14, 158, 235));
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+main #skill .page-2 .box-2 .tool .san-grid:hover {
+    background: linear-gradient(135deg, rgb(70, 136, 221), rgb(30, 150, 243));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(42, 124, 230, 0.3);
+}
+
+main #skill .page-2 .box-2 .larn-ing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+main #skill .page-2 .box-2 .larn-ing .s-v-g {
+    padding: 1rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgb(42, 124, 230), rgb(14, 158, 235));
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+main #skill .page-2 .box-2 .larn-ing .s-v-g:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(42, 124, 230, 0.3);
 }
 
 @media only screen and (min-width: 770px) and (max-width: 1092px) {
     header {
-        padding: 0 4rem;
+        padding: 0 3rem;
         height: 55px;
+        border-bottom: 1px solid rgba(42, 124, 230, 0.15);
     }
 
     header .hm {
@@ -498,25 +751,31 @@ main #about .tow .text-2 img:hover {
     }
 
     header .hm .logo h2 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 
     header .hm nav {
         width: 70%;
-        gap: 0.6rem
+        gap: 0.6rem;
     }
 
     header .hm nav .list ul {
-        gap: 0.8rem;
+        gap: 1rem;
     }
 
     header .hm nav .list ul li a {
-        font-size: 15px;
+        font-size: 14px;
+        color: rgba(226, 232, 240, 0.85);
+    }
+
+    header .hm nav .list ul li a:hover {
+        color: rgb(14, 158, 235);
     }
 
     header .hm nav .butt button {
-        font-size: 15px;
-        padding: 8px;
+        font-size: 14px;
+        padding: 8px 16px;
+        background: linear-gradient(135deg, rgb(42, 124, 230), rgb(14, 158, 235));
     }
 
     main #home .main {
@@ -575,37 +834,54 @@ main #about .tow .text-2 img:hover {
         padding: 20px;
     }
 
+    main #about {
+        padding: 3rem 2rem 2rem 2rem;
+        margin-top: 55px;
+    }
+
+    main #about .tow {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    main #about .tow .text {
+        width: 100%;
+        padding: 2rem;
+    }
+
     main #about .tow .text h2 {
-        font-size: 2.8rem;
+        font-size: 2.4rem;
         color: white;
     }
 
     main #about .tow .text h2 span {
-        color: rgb(42, 124, 230);
+        color: rgb(14, 158, 235);
     }
 
     main #about .tow .text .para {
-        color: white;
+        color: rgba(226, 232, 240, 0.9);
         margin-top: 1.3rem;
     }
 
     main #about .tow .text .para p {
-        font-size: 1.05rem;
+        font-size: 1rem;
         text-align: justify;
-        margin: 1rem 0 1rem 5px;
+        margin: 1rem 0;
     }
 
     main #about .tow .text .num {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        margin-top: 1.5rem;
     }
 
     main #about .tow .text .num ul {
         display: flex;
         list-style: none;
         justify-content: flex-start;
-        gap: 2rem;
+        gap: 1.5rem;
+        width: 100%;
     }
 
     main #about .tow .text .num ul li {
@@ -613,20 +889,24 @@ main #about .tow .text-2 img:hover {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 1rem;
+        padding: 1.2rem;
         gap: 0.5rem;
+        flex: 1;
     }
 
     main #about .tow .text .num ul li h2 {
-        color: rgb(96 165 250);
+        color: rgb(96, 165, 250);
         font-size: 1.5rem;
-
     }
 
     main #about .tow .text .num ul li p {
-        font-size: 1.1rem;
-        color: white;
+        font-size: 1rem;
+        color: rgba(226, 232, 240, 0.8);
         text-align: center;
+    }
+
+    main #about .tow .text-2 {
+        width: 100%;
     }
 
     main #about .tow .text-2 {
@@ -646,12 +926,49 @@ main #about .tow .text-2 img:hover {
     main #about .tow .text-2 img:hover {
         transform: scale(1.05);
     }
+
+    main #skill {
+        padding: 3rem 1.5rem;
+    }
+
+    main #skill .page {
+        padding: 2rem 1rem;
+    }
+
+    main #skill .page h1 {
+        font-size: 2.4rem;
+    }
+
+    main #skill .page p {
+        font-size: 1.2rem;
+    }
+
+    main #skill .page-2 {
+        grid-template-columns: 1fr;
+        padding: 20px 40px;
+        gap: 1.5rem;
+    }
+
+    main #skill .page-2 .box,
+    main #skill .page-2 .box-2 {
+        padding: 1.5rem;
+    }
+
+    main #skill .page-2 .box-2 .tool {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    main #skill .page-2 .box-2 .larn-ing {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 @media only screen and (min-width: 481px) and (max-width: 769px) {
     header {
-        padding: 0 2rem;
+        padding: 0 1.5rem;
         height: 50px;
+        border-bottom: 1px solid rgba(42, 124, 230, 0.15);
     }
 
     header .hm {
@@ -663,7 +980,7 @@ main #about .tow .text-2 img:hover {
     }
 
     header .hm .logo h2 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     header .hm nav {
@@ -680,7 +997,12 @@ main #about .tow .text-2 img:hover {
     }
 
     header .hm nav .list ul li a {
-        font-size: 13px;
+        font-size: 12px;
+        color: rgba(226, 232, 240, 0.8);
+    }
+
+    header .hm nav .list ul li a:hover {
+        color: rgb(14, 158, 235);
     }
 
     header .hm nav .butt {
@@ -688,8 +1010,9 @@ main #about .tow .text-2 img:hover {
     }
 
     header .hm nav .butt button {
-        font-size: 12px;
-        padding: 7px;
+        font-size: 11px;
+        padding: 7px 12px;
+        background: linear-gradient(135deg, rgb(42, 124, 230), rgb(14, 158, 235));
     }
 
     main #home .main {
@@ -753,9 +1076,10 @@ main #about .tow .text-2 img:hover {
     }
 
     main #about {
-        background-color: rgb(30 41 59/ 1);
+        background: linear-gradient(135deg, rgb(30, 41, 59) 0%, rgb(15, 23, 42) 100%);
         min-height: 100vh;
-        padding: 3rem 3rem 1rem 3rem;
+        padding: 2.5rem 1.5rem 1rem 1.5rem;
+        margin-top: 50px;
     }
 
     main #about .tow {
@@ -767,41 +1091,47 @@ main #about .tow .text-2 img:hover {
     }
 
     main #about .tow .text {
-        padding: 20px;
-        width: auto;
+        padding: 1.5rem;
+        width: 100%;
+        background: rgba(30, 41, 59, 0.6);
+        border-radius: 12px;
+        border: 1px solid rgba(42, 124, 230, 0.2);
     }
 
     main #about .tow .text h2 {
-        font-size: 2.6rem;
+        font-size: 2rem;
         color: white;
+        margin-bottom: 1rem;
     }
 
     main #about .tow .text h2 span {
-        color: rgb(42, 124, 230);
+        color: rgb(14, 158, 235);
     }
 
     main #about .tow .text .para {
-        color: white;
-        margin-top: 1.25rem;
+        color: rgba(226, 232, 240, 0.9);
+        margin-top: 1rem;
     }
 
     main #about .tow .text .para p {
-        font-size: 1.03rem;
+        font-size: 0.95rem;
         text-align: justify;
-        margin: 1rem;
+        margin: 0.8rem 0;
     }
 
     main #about .tow .text .num {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 1.5rem;
     }
 
     main #about .tow .text .num ul {
         display: flex;
         list-style: none;
         justify-content: flex-start;
-        gap: 2rem;
+        gap: 1rem;
+        width: 100%;
     }
 
     main #about .tow .text .num ul li {
@@ -811,31 +1141,45 @@ main #about .tow .text-2 img:hover {
         align-items: center;
         padding: 1rem;
         gap: 0.5rem;
+        flex: 1;
+        background: rgba(42, 124, 230, 0.1);
+        border-radius: 8px;
+        border-left: 3px solid rgb(42, 124, 230);
     }
 
     main #about .tow .text .num ul li h2 {
-        color: rgb(96 165 250);
-        font-size: 1.4rem;
-
+        color: rgb(96, 165, 250);
+        font-size: 1.3rem;
+        margin: 0;
     }
 
     main #about .tow .text .num ul li p {
-        font-size: 1rem;
-        color: white;
+        font-size: 0.9rem;
+        color: rgba(226, 232, 240, 0.8);
         text-align: center;
+        margin: 0;
     }
 
     main #about .tow .text-2 {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: auto;
+        width: 100%;
+    }
+
+    main #about .tow .text-2 .im {
+        width: 100%;
+        padding: 1rem;
+        background: rgba(42, 124, 230, 0.1);
+        border-radius: 12px;
+        border: 1px solid rgba(42, 124, 230, 0.2);
     }
 
     main #about .tow .text-2 img {
-        border-radius: 0.4rem;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        width: 550px;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(42, 124, 230, 0.15);
+        width: 100%;
+        max-width: 350px;
         transition: all 0.3s ease;
     }
 
@@ -843,28 +1187,73 @@ main #about .tow .text-2 img:hover {
         transform: scale(1.03);
     }
 
+    main #skill {
+        padding: 2.5rem 1rem;
+    }
+
+    main #skill .page h1 {
+        font-size: 2rem;
+    }
+
+    main #skill .page p {
+        font-size: 1.1rem;
+    }
+
+    main #skill .page-2 {
+        grid-template-columns: 1fr;
+        padding: 15px 20px;
+        gap: 1.5rem;
+    }
+
+    main #skill .page-2 .box,
+    main #skill .page-2 .box-2 {
+        padding: 1.2rem;
+    }
+
+    main #skill .page-2 .box h3,
+    main #skill .page-2 .box-2 h3 {
+        font-size: 1.3rem;
+    }
+
+    main #skill .page-2 .box-2 .tool {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    main #skill .page-2 .box-2 .larn-ing {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media only screen and (max-width: 480px) {
     header {
-        padding: 1.5rem 1.5rem  1.5rem 0.6rem;
+        padding: 0;
         height: 60px;
+        border-bottom: 1px solid rgba(42, 124, 230, 0.15);
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.95) 100%);
     }
 
     header .hm {
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        padding: 0 0.8rem;
+    }
+
+    header .hm .logo {
+        width: auto;
+        height: 100%;
     }
 
     header .hm .logo h2 {
-        font-size: 1.5rem;  
-
+        font-size: 1.4rem;
+        background: linear-gradient(135deg, #ffffff, rgb(42, 124, 230));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     header .hm nav {
         width: 60%;
-
     }
 
     header .hm nav .list {
@@ -881,7 +1270,8 @@ main #about .tow .text-2 img:hover {
         flex-direction: column;
         align-items: center;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        background-color: rgb(3, 29, 91);
+        background: linear-gradient(135deg, rgba(3, 29, 91, 0.95), rgba(15, 23, 42, 0.95));
+        border-bottom: 1px solid rgba(42, 124, 230, 0.15);
         color: white;
         overflow: hidden;
         max-height: 0;
@@ -890,20 +1280,25 @@ main #about .tow .text-2 img:hover {
 
     header .hm nav .list ul li {
         width: 100%;
-        padding: 8px 0;
+        padding: 10px 0;
         display: flex;
         justify-content: center;
         cursor: pointer;
-    }
-
-    header .hm nav .list ul li:hover {
-        background-color: rgb(27, 56, 124);
-        border-radius: 5px;
         transition: all 0.3s ease;
     }
 
+    header .hm nav .list ul li:hover {
+        background-color: rgba(42, 124, 230, 0.1);
+        border-left: 3px solid rgb(42, 124, 230);
+    }
+
     header .hm nav .list ul li a {
-        font-size: 12px;
+        font-size: 13px;
+        color: rgba(226, 232, 240, 0.8);
+    }
+
+    header .hm nav .list ul li a:hover {
+        color: rgb(14, 158, 235);
     }
 
     header .hm nav .list ul li a:hover::after {
@@ -915,9 +1310,11 @@ main #about .tow .text-2 img:hover {
     }
 
     header .hm nav .butt button {
-        font-size: 13px;
-        padding: 8px;
+        font-size: 12px;
+        padding: 8px 14px;
         font-weight: 600;
+        background: linear-gradient(135deg, rgb(42, 124, 230), rgb(14, 158, 235));
+        border: 1px solid rgba(42, 124, 230, 0.3);
     }
 
     header .hm .toggle {
@@ -1000,227 +1397,191 @@ main #about .tow .text-2 img:hover {
     }
 
     main #about {
-        background-color: rgb(30 41 59/ 1);
+        background: linear-gradient(135deg, rgb(30, 41, 59) 0%, rgb(15, 23, 42) 100%);
         min-height: 100vh;
-        padding: 1.2rem;
+        padding: 1.5rem 1rem;
         padding-top: 4rem;
+        margin-top: 60px;
     }
 
     main #about .tow {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1.2rem;
         flex-direction: column-reverse;
     }
 
     main #about .tow .text {
         width: 100%;
-        padding: 10px;
+        padding: 1.2rem;
+        background: rgba(30, 41, 59, 0.6);
+        border-radius: 10px;
+        border: 1px solid rgba(42, 124, 230, 0.2);
     }
 
     main #about .tow .text h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         color: white;
+        margin-bottom: 1rem;
     }
 
     main #about .tow .text h2 span {
-        color: rgb(42, 124, 230);
+        color: rgb(14, 158, 235);
     }
 
     main #about .tow .text .para {
-        color: white;
+        color: rgba(226, 232, 240, 0.9);
         padding: 0;
-        margin-top: 10px;
+        margin-top: 1rem;
     }
 
     main #about .tow .text .para p {
-        font-size: 14px;
+        font-size: 0.9rem;
         text-align: justify;
-        margin:  8px 0 8px 5px;
+        margin: 0.8rem 0;
+    }
+
+    main #about .tow .text .num {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.2rem;
     }
 
     main #about .tow .text .num ul {
-        justify-content: flex-start;
-        gap: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+        list-style: none;
+        padding: 0;
     }
 
     main #about .tow .text .num ul li {
-        justify-content: space-between;
-        gap: 10;
-
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.8rem;
+        background: rgba(42, 124, 230, 0.1);
+        border-radius: 8px;
+        border-left: 3px solid rgb(42, 124, 230);
     }
 
     main #about .tow .text .num ul li h2 {
-        color: rgb(96 165 250);
-        font-size: 1.3rem;
-
+        color: rgb(96, 165, 250);
+        font-size: 1.4rem;
+        margin: 0;
     }
 
     main #about .tow .text .num ul li p {
-        font-size: 0.9rem;
-        color: white;
+        font-size: 0.85rem;
+        color: rgba(226, 232, 240, 0.8);
+        text-align: center;
+        margin: 0;
     }
 
     main #about .tow .text-2 {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: auto;
+        width: 100%;
+    }
+
+    main #about .tow .text-2 .im {
+        width: 100%;
+        padding: 1rem;
+        background: rgba(42, 124, 230, 0.1);
+        border-radius: 10px;
+        border: 1px solid rgba(42, 124, 230, 0.2);
     }
 
     main #about .tow .text-2 img {
-        border-radius: 0.4rem;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(42, 124, 230, 0.15);
+        width: 100%;
+        max-width: 300px;
         transition: all 0.3s ease;
-        width: 350px;
     }
 
     main #about .tow .text-2 img:hover {
         transform: scale(1.03);
+        box-shadow: 0 12px 28px rgba(42, 124, 230, 0.2);
+    }
+
+    main #skill {
+        padding: 2rem 1rem;
+        margin-top: 60px;
+    }
+
+    main #skill .page {
+        padding: 1.5rem 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    main #skill .page h1 {
+        font-size: 1.8rem;
+    }
+
+    main #skill .page p {
+        font-size: 0.9rem;
+    }
+
+    main #skill .page-2 {
+        grid-template-columns: 1fr;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    main #skill .page-2 .box,
+    main #skill .page-2 .box-2 {
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 0;
+    }
+
+    main #skill .page-2 .box h3,
+    main #skill .page-2 .box-2 h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    main #skill .page-2 .box ul li {
+        padding: 1rem;
+        margin: 0.8rem 0;
+    }
+
+    main #skill .page-2 .box ul li span {
+        font-size: 0.95rem;
+    }
+
+    main #skill .page-2 .box-2 .tool {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        margin: 0;
+    }
+
+    main #skill .page-2 .box-2 .tool .san-grid {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    main #skill .page-2 .box-2 .larn-ing {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    main #skill .page-2 .box-2 .larn-ing .s-v-g {
+        padding: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
 
-main #skill {
-    background-color: rgb(15 23 42/ 1);
-    color: red;
-    min-height: 100vh;
-}
 
-main #skill .page {
-    /* border: solid 1px red; */
-    text-align: center;
-    padding: 1rem;
-    /* margin: 1.3rem; */
-}
-
-main #skill .page h1 {
-    font-size: 2.8rem;
-}
-
-main #skill .page h1 span {
-    color: rgb(14, 158, 235);
-
-}
-
-main #skill .page-2 {
-    display: flex;
-    justify-content: space-between;
-    gap: 1.5rem;
-    padding: 20px 80px;
-    flex-wrap: wrap;
-}
-
-main #skill .page-2 .box {
-    width: 30rem;
-}
-
-main #skill .page-2 .box h3 {
-    /* border: solid 1px red; */
-    text-align: center;
-}
-
-
-main #skill .page-2 .box ul li {
-    /* border: solid 1px red; */
-    background-color: rgb(30 41 59/ 1);
-    list-style: none;
-    padding: 1.5rem;
-    width: 100%;
-    max-width: 30rem;
-    margin: 1rem auto;
-
-}
-
-main #skill .page-2 .box ul li .skill-bar {
-    border: rgb(17, 20, 26) 2px solid;
-    /* padding: 0.2rem; */
-    width: 100%;
-    border-radius: 0.5rem;
-
-}
-
-main #skill .page-2 .box ul li .skill-bar .red {
-    border: rgb(42, 124, 230) 4px solid;
-    border-radius: 0.3rem;
-    width: 90%;
-}
-
-main #skill .page-2 .box ul li .skill-bar .red-1 {
-    border: rgb(42, 124, 230) 4px solid;
-    border-radius: 0.3rem;
-    width: 85%;
-}
-
-main #skill .page-2 .box ul li .skill-bar .red-2 {
-    border: rgb(42, 124, 230) 4px solid;
-    border-radius: 0.3rem;
-    width: 59%;
-}
-
-main #skill .page-2 .box ul li .skill-bar .red-3 {
-    border: rgb(42, 124, 230) 4px solid;
-    border-radius: 0.3rem;
-    width: 83%;
-}
-
-main #skill .page-2 .box ul li .skill-bar .red-4 {
-    border: rgb(42, 124, 230) 4px solid;
-    border-radius: 0.3rem;
-    width: 80%;
-}
-
-
-main #skill .page-2 .box-2 h3 {
-    /* border: solid 1px red; */
-    text-align: center;
-}
-
-main #skill .page-2 .box-2 .s-v-g {
-    /* border: solid 1px red; */
-    margin: 1rem;
-}
-
-main #skill .page-2 .box-2 .tool-2 h3 {
-    text-align: start;
-}
-
-main #skill .page-2 .box-2 .tool-0 {
-    background-color: rgb(30 41 59/ 1);
-    border-radius: 0.5rem;
-    padding: 0.6rem;
-    margin: 1rem;
-}
-
-main #skill .page-2 .box-2 .tool-2 {
-    background-color: rgb(30 41 59/ 1);
-    border-radius: 0.5rem;
-    padding: 0.6rem;
-    margin: 1rem;
-}
-
-main #skill .page-2 .box-2 .tool {
-    /* border: solid 1px red; */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: .5rem;
-    margin: 1rem;
-}
-
-main #skill .page-2 .box-2 .tool .san-grid {
-    /* border: solid 1px blue; */
-    text-align: center;
-    padding: 1rem;
-    margin: 0.5rem;
-    border-radius: 0.5rem;
-    background-color: rgb(42, 124, 230);
-}
-
-main #skill .page-2 .box-2 .tool .san-grid:hover {
-    background-color: rgb(70, 136, 221);
-    color: white;
-}
 
 
 
